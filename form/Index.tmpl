@@ -1,0 +1,48 @@
+{{ define "Index" }}
+  {{ template "Header" }}
+  {{ template "Navbar" }}
+
+  <style>
+table{ 
+    width: 100%;
+   border-collapse: collapse;
+}
+th, td{
+   
+    border: black solid 1px;    
+}
+
+  </style>
+    <h2> Allocated Book </h2>
+   <div style="overflow:hidden">
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Bookid</th>
+        <th>Issuerid</th>
+        <th>Issuedate</th>
+        <th>Returndate</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+       </thead>
+       <tbody>
+    {{ range . }}
+      <tr>
+      <td>{{ .Id }}</td>
+      <td>{{ .Bookid }}</td>
+      <td>{{ .Issuerid }}</td>
+      <td>{{ .Issuedate }}</td>
+      <td>{{ .Returndate }}</td>
+        <td><a href="/show?id={{ .Id }}">View</a></td>
+        <td><a href="/edit?id={{ .Id }}">Edit</a></td>
+        <td><a href="/delete?id={{ .Id }}">Delete</a><td>
+      </tr>
+    {{ end }}
+       </tbody>
+    </table>
+    </div>
+  {{ template "Footer" }}
+{{ end }}

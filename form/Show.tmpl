@@ -1,0 +1,15 @@
+{{ define "Show" }}
+  {{ template "Header" }}
+  {{ template "Navbar" }}
+  
+  <div class="w3-card-4">
+    <h2> Register {{ .Id }} </h2>
+      <p>Bookid: {{ .Bookid }}</p>
+      <p>Issuerid:  {{ .Issuerid }}</p>
+       <p>Issuedate: {{ .Issuedate }}</p>
+      <p>Returndate:  {{ .Returndate }}</p>
+      <br /> 
+      <a href="/edit?id={{ .Id }}">Edit</a></p>
+      </div>
+  {{ template "Footer" }}
+{{ end }}

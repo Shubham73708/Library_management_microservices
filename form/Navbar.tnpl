@@ -1,0 +1,25 @@
+
+{{ define "Navbar" }}
+  {{ template "Header" }}
+<style>
+
+
+
+.bg-custom-1 {
+  background-color: #cc2b5e;
+}
+
+.bg-custom-2 {
+background-image: linear-gradient(15deg, #cc2b5e 0%, #753a88 100%);
+}
+</style>
+<body>
+<nav class="navbar navbar-dark bg-custom-2">
+
+<a class="navbar-brand" href="/">Home</a>
+<a class="navbar-brand" href="/new">New</a>
+<a class="navbar-brand" href="/logout">Logout</a>
+</nav>
+
+  {{ template "Footer" }}
+{{ end }}
