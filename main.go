@@ -7,6 +7,7 @@ import (
 	"text/template"
 
 	_ "github.com/go-sql-driver/mysql"
+	"gopkg.in/toast.v1"
 )
 
 type Employee struct {
@@ -135,6 +136,14 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 	http.Redirect(w, r, "/", 301)
+
+	notification := toast.Notification{
+		Message: "Issuer info added succesfully.",
+	}
+	err := notification.Push()
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
 
 func Update(w http.ResponseWriter, r *http.Request) {
@@ -154,6 +163,14 @@ func Update(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 	http.Redirect(w, r, "/", 301)
+
+	notification := toast.Notification{
+		Message: "Issuer info updated succesfully.",
+	}
+	err := notification.Push()
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
 
 func Delete(w http.ResponseWriter, r *http.Request) {
@@ -167,6 +184,14 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 	log.Println("DELETE")
 	defer db.Close()
 	http.Redirect(w, r, "/", 301)
+
+	notification := toast.Notification{
+		Message: "Issuer info deleted succesfully.",
+	}
+	err = notification.Push()
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
 
 func Signup(w http.ResponseWriter, r *http.Request) {
@@ -189,6 +214,13 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 	http.Redirect(w, r, "/signin", 301)
+	notification := toast.Notification{
+		Message: "Signup succesfull, Please login.",
+	}
+	err := notification.Push()
+	if err != nil {
+		log.Fatalln(err)
+	}
 
 }
 
@@ -221,6 +253,13 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	defer db.Close()
 	http.Redirect(w, r, "/", 301)
 
+	notification := toast.Notification{
+		Message: "Login succesfull...",
+	}
+	err := notification.Push()
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
 
 func Logout(w http.ResponseWriter, r *http.Request) {

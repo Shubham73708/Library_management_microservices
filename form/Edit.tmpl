@@ -6,13 +6,13 @@
 <div class="container">
    
     <h1>Edit!</h1>
-   
+   <br/>
     <form method="POST" action="update" >
         <input type="hidden" name="uid" value="{{ .Id }}" />
         
-          <div class="form-group">
-            <label for="bookid">Bookid</label>
-            <input type="text" class="form-control" value="{{ .Bookid }}" name="bookid" >
+        <div class="form-group">
+          <label for="bookid">Bookid</label>
+          <input type="text" class="form-control" value="{{ .Bookid }}" name="bookid" >
         </div>
         <div class="form-group">
             <label for="issuerid">Issuerid</label>

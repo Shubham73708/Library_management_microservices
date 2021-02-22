@@ -2,7 +2,9 @@
   {{ template "Header" }}
 <style>
 body {
-  background-color: #2ecc71;
+ background: #00b09b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #00b09b, #96c93d); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #00b09b, #96c93d); 
   font-family: source-sans-pro, sans-serif;
 }
 
@@ -21,7 +23,8 @@ div {
 }
 
 .form-control { 
-  background-color: #2ecc71;
+  background: rgb(234,252,239);
+background: radial-gradient(circle, rgba(234,252,239,1) 0%, rgba(170,241,199,1) 100%);
   padding: 20px; 
   width: 400px; 
   margin-bottom: 20px; 
@@ -83,7 +86,8 @@ input:focus {
 
 
 </style>
-<h1>Signup-Form</h1>  
+<h1>Signup-Form</h1>
+<br/>  
 <div >  
     <form method="POST" action="/register">
         

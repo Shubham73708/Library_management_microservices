@@ -2,14 +2,63 @@
   {{ template "Header" }}
   {{ template "Navbar" }}
   
-  <div class="w3-card-4">
-    <h2> Register {{ .Id }} </h2>
+<style>
+* {
+    box-sizing: border-box;
+}
+ 
+body,
+html {
+    height: 100%;
+    min-height: 100%;
+}
+ 
+body {
+    font-family: 'Roboto',
+    sans-serif;
+    margin: 0;
+    background-color: #e7e7e7;
+}
+.credit-card {
+    width: 360px;
+    height: 360px;
+    margin: 60px auto 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 1px 2px 3px 0 rgba(0,0,0,.10);
+}
+
+.form-header {
+    height: 60px;
+    padding: 20px 30px 0;
+    border-bottom: 1px solid #e1e8ee;
+    background-image: linear-gradient(15deg, #cc2b5e 0%, #753a88 100%);
+}
+ 
+.form-body {
+    height: 220px;
+    padding: 30px 30px 20px;
+}
+</style>
+
+
+  <br/>
+
+  <form class="credit-card">
+  <div class="form-header">
+    <h4 class="title">Allocated book {{ .Id }} </h4>
+  </div>
+ 
+  <div class="form-body">
+     <br/>
       <p>Bookid: {{ .Bookid }}</p>
       <p>Issuerid:  {{ .Issuerid }}</p>
        <p>Issuedate: {{ .Issuedate }}</p>
       <p>Returndate:  {{ .Returndate }}</p>
       <br /> 
-      <a href="/edit?id={{ .Id }}">Edit</a></p>
-      </div>
+   </div>
+   </form>  
+
   {{ template "Footer" }}
 {{ end }}

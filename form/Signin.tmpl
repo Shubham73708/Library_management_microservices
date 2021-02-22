@@ -2,7 +2,9 @@
   {{ template "Header" }}
 <style>
 body {
-  background-color: #2ecc71;
+  background: #2980b9; 
+  background: -webkit-linear-gradient(to left, #2980b9, #6dd5fa, #ffffff); 
+  background: linear-gradient(to left, #2980b9, #6dd5fa, #ffffff);  
   font-family: source-sans-pro, sans-serif;
 }
 
@@ -21,7 +23,8 @@ div {
 }
 
 .form-control { 
-  background-color: #2ecc71;
+ background: rgb(234,252,239);
+background: radial-gradient(circle, rgba(234,252,239,1) 0%, rgba(170,241,199,1) 100%);
   
   padding: 20px; 
   width: 400px; 
@@ -84,7 +87,8 @@ input:focus {
 
 
 </style>
-<h1>Login-Form</h1>  
+<h1>Login-Form</h1>
+<br/>  
 <div >  
     <form method="POST" action="/login">
         
