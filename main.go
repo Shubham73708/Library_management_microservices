@@ -211,17 +211,16 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		}
 		insForm.Exec(name, email, phone, password)
 		log.Println("INSERT: Name: " + name + " | Email: " + email)
+		http.Redirect(w, r, "/signin", 301)
+		notification := toast.Notification{
+			Message: "Signup succesfull, Please login.",
+		}
+		err = notification.Push()
+		if err != nil {
+			log.Fatalln(err)
+		}
 	}
 	defer db.Close()
-	http.Redirect(w, r, "/signin", 301)
-	notification := toast.Notification{
-		Message: "Signup succesfull, Please login.",
-	}
-	err := notification.Push()
-	if err != nil {
-		log.Fatalln(err)
-	}
-
 }
 
 func Signin(w http.ResponseWriter, r *http.Request) {
@@ -244,22 +243,30 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			if password == passwordFromDB {
 
 				log.Println("Login succesfull: Email: " + EmailFromDB)
+
+				http.Redirect(w, r, "/", 301)
+
+				notification := toast.Notification{
+					Message: "Login succesfull...",
+				}
+				err := notification.Push()
+				if err != nil {
+					log.Fatalln(err)
+				}
 			} else {
 				log.Println("Login unsuccesfull, data does not match")
-
+				http.Redirect(w, r, "/signin", 301)
+				notification := toast.Notification{
+					Message: "Login unsuccesfull, email and pasword does not match.",
+				}
+				err := notification.Push()
+				if err != nil {
+					log.Fatalln(err)
+				}
 			}
 		}
 	}
 	defer db.Close()
-	http.Redirect(w, r, "/", 301)
-
-	notification := toast.Notification{
-		Message: "Login succesfull...",
-	}
-	err := notification.Push()
-	if err != nil {
-		log.Fatalln(err)
-	}
 }
 
 func Logout(w http.ResponseWriter, r *http.Request) {
