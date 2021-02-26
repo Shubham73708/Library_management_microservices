@@ -48,6 +48,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	}
 	emp := Employee{}
 	res := []Employee{}
+
 	for selDB.Next() {
 		var id, bookid, issuerid int
 		var issuedate, returndate string
@@ -207,7 +208,14 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		password := r.FormValue("password")
 		insForm, err := db.Prepare("INSERT INTO User(name,email,phone,password) VALUES(?,?,?,?)")
 		if err != nil {
-			panic(err.Error())
+			http.Redirect(w, r, "/signup", 301)
+			notification := toast.Notification{
+				Message: "Signup unsuccesfull....",
+			}
+			err := notification.Push()
+			if err != nil {
+				log.Fatalln(err)
+			}
 		}
 		insForm.Exec(name, email, phone, password)
 		log.Println("INSERT: Name: " + name + " | Email: " + email)
