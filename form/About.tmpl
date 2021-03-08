@@ -1,0 +1,31 @@
+{{ define "About" }}
+  {{ template "Header" }}
+{{ template "Navbar" }}
+<style>
+.about{
+    font-size: 25px;
+    text-align: left;
+    /* padding-top: 10px; */
+    padding-left: 30px;
+    padding-right: 30px;
+}
+</style>
+<div class="card text-white" style="margin-top: 10px;background: linear-gradient(to bottom, #ddd6f3 0%, #faaca8 100%)">
+    <div class="card-body" style="font-size: 25px;">About Us</div>
+  </div>
+<div class="card" style="padding-top: 10px;">
+    <div class="card-body" style="background-color: rgb(203, 198, 235);">
+<p class="about" style="margin-top: 20px;">Jai nepal machinery store is store which is focused to sell the best quality machinery products in nepal.Therefore, it’s only natural that our About Us page features a compilation of various machinery we host.When we came here in nepal,there was huge shortage of big machinery shops beacuse the machinery shops which is there takes huge margin on any products.So,our owner which has 40 years rich experience in engineeringfield takes the resposibility to serve the people and open the shop which has good quality of products and cost is also reasonable. </p>
+
+</div>
+</div>
+
+<div class="media" style="padding-top: 20px;">
+    <img src="https://images.unsplash.com/photo-1556474835-b0f3ac40d4d1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NzN8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="align-self-start mr-3" style="width:160px; height:150px;">
+    <div class="media-body" style="background-color: grey;">
+      <h3>Our Owner </h3>
+      <h4>Mr. Om Prakash Shahi has a 40 years rich experience in machinery field. After serving 30 years as chief engineer in top comapnies of gujarat, he shift towards nepal to open nepal one of the biggest machinery shops in Birgunj. </h4>
+    </div>
+  </div>
+  {{ template "Footer" }}
+{{ end }}

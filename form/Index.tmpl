@@ -2,51 +2,77 @@
   {{ template "Header" }}
   {{ template "Navbar" }}
 
-  <style>
-table{ 
-    width: 100%;
-   border-collapse: collapse;
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+ .about-border {
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: #f1cd8f;
+    margin: 10px auto;
 }
-th, td{
-   
-    border: black solid 1px;    
-}
-h2{
-  text-allignment:center;
-}
-  </style>
-   <br/>
-    <h2> Allocated Book </h2>
-     <br/>
-   <div style="overflow:hidden">
-    <table>
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Bookid</th>
-        <th>Issuerid</th>
-        <th>Issuedate</th>
-        <th>Returndate</th>
-        <th>View</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-       </thead>
-       <tbody>
-    {{ range . }}
-      <tr>
-      <td>{{ .Id }}</td>
-      <td>{{ .Bookid }}</td>
-      <td>{{ .Issuerid }}</td>
-      <td>{{ .Issuedate }}</td>
-      <td>{{ .Returndate }}</td>
-        <td><a href="/show?id={{ .Id }}">View</a></td>
-        <td><a href="/edit?id={{ .Id }}">Edit</a></td>
-        <td><a href="/delete?id={{ .Id }}">Delete</a><td>
-      </tr>
-    {{ end }}
-       </tbody>
-    </table>
+</style>
+  
+  <div class="image">
+    
+
+    
+    
+    <div class="container mt-3">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+      <!-- Indicators -->
+      <ul class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ul>
+      
+      <!-- The slideshow -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://images.unsplash.com/photo-1517146783983-418c681b56c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8dGV4dGlsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Los Angeles" width="1300" height="500">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1576256932046-62148e2efdce?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80" alt="Chicago" width="1300" height="500">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1584275142300-399449432665?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzh8fGZhY3Rvcnl8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="New York" width="1300" height="500">
+        </div>
+      </div>
+      
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
     </div>
+    
+    </div>
+</div>
+<div style="margin-top: 20px;text-align: center;">
+    <h2>What we do</h2>
+    <div class="about-border"></div>
+</div>
+<div style="background-color: rgb(210, 241, 210);">
+    <h4 style="margin-top: 30px;">
+        Jai nepal machinery store, based in Birganj, is a machinery store focused on selling mainly textile machinery spare and parts. 
+        With a humble beginning in 2018 it has accomplished a highly coveted industrial journey to become a reputed and recognized brand selling store, 
+        Mini Rotary Tiller, Trash Cutting Machine, Hydraulic Reversible Ploughs, Agricultural plough, Ratoon Manager, Pushpak Rooter, Pushpak Palakutti Machine.
+
+
+    </h4><br/>
+<h4>
+    Our Business Tie ups with Industry Stalwarts such as Shreeji, Ujala & Rupa dying are testimony to our over two years dedicated focus in this field. We also provide technical expertise in textile machinery field with the help of our renowned owner experience .
+
+
+</h4></div>
   {{ template "Footer" }}
 {{ end }}
