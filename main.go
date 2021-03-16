@@ -284,7 +284,7 @@ func Logout(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	log.Println("Server started on: http://localhost:8080")
+	log.Println("Server started on: http://localhost:9090")
 	http.HandleFunc("/", Index)
 	http.HandleFunc("/show", Show)
 	http.HandleFunc("/new", New)
@@ -297,5 +297,5 @@ func main() {
 	http.HandleFunc("/signin", Signin)
 	http.HandleFunc("/login", Login)
 	http.HandleFunc("/logout", Logout)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":9090", nil)
 }
